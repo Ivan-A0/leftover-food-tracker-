@@ -1,0 +1,51 @@
+/* CSS */
+.default_button {
+  appearance: none;
+  background-color: var(--primary_500);
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: var(--primary_1000);
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.default_button:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.default_button:hover {
+  background-color: var(--primary_600);
+}
+
+.default_button:focus {
+  box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+  outline: none;
+}
+
+.default_button:disabled {
+  background-color: var(--primary_300);
+  border-color: rgba(27, 31, 35, .1);
+  color: var(--primary_1000) 80%;
+  cursor: default;
+}
+
+.default_button:active {
+  background-color: var(--primary_500);
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}

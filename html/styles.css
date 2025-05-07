@@ -1,0 +1,126 @@
+:root {
+  --primary_100: #F0FCED;
+  /* --primary_200: white; */
+  --primary_300: #B7F2A6;
+  /* --primary_400: white; */
+  --primary_500: #8FEB70;
+  --primary_600: #73E64C;
+  --primary_700: #338F14;
+  /* --primary_800: white; */
+  --primary_900: #1A470B;
+  --primary_1000: #143608;
+  
+  --grey-100: #F1F3F5;
+  /* --grey-200: white; */
+  --grey-300: #DEE2E6;
+  /* --grey-400: white; */
+  --grey-500: #ADB5BD;
+  /* --grey-600: white; */
+  --grey-700: #495057;
+  /* --grey-800: white; */
+  --grey-900: #212529;
+  /* --grey-1000: white; */
+}
+
+/* Title and Page Background */
+
+body {
+  background-color: var(--grey-100);
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary_1000);
+}
+
+/* Display Table CSS props */
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid var(--grey-900);
+  text-align: center;
+}
+
+form, table, th, td {
+  color: var(--primary_900);
+  background-color: var(--primary_100);
+  border-radius: 8px;
+}
+
+/* Add Form button layout */
+
+#tracker_button_container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  height: 60px;
+  padding: 10px;
+}
+
+.tracker_button {
+  flex-grow: 1;
+}
+
+/* Index Main Flexbox */
+
+#layout_container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  padding-top: 0px;
+  flex-wrap: wrap;
+}
+
+#add_form {
+  flex-grow: 1;
+}
+
+#leftover_record_table {
+  flex-grow: 1;
+}
+
+/* Report cell Flexbox and colors */
+
+.leftover_report_div {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  padding-top: 0px;
+  flex-wrap: wrap;
+  
+  margin-top: 10px;
+}
+
+.fact_display_box {
+  border-radius: 8px;
+  border: 1px solid var(--grey-900);
+  background-color: var(--primary_100);
+
+  height: 0;
+  width:20%;
+  padding-bottom:20%;
+
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* padding-top: 10%; */
+
+  flex-grow: 1;
+}
+
+/* Report colors */
+/* TODO: Check no conflict with other selectors above, maybe move this style sheet to a new file. */
+
+label, p, ul {
+  color: var(--primary_1000);
+}
+
+#total_cost_of_food_leftover_{
+  color: red;
+}

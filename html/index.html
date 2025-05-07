@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<header>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link rel="stylesheet" type="text/css" href="css_styles/default_button.css" />
+  <link rel="stylesheet" type="text/css" href="css_styles/default_form.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="index_script.js"></script>
+</header>
+
+<body>
+  <h1>Leftover Food Tracker</h1>
+  <div id="layout_container">
+    <table id="leftover_record_table" height="10px">
+      <tr>
+        <th>Date</th>
+        <th>Meal</th>
+        <th>Food</th>
+        <th>Quantity (in oz)</th>
+        <th>Leftover Reason</th>
+        <th>Disposal Mechanism</th>
+        <th>Estimated Cost (in $)</th>
+        <th>Delete</th>
+      </tr>
+    </table>
+    <div id="add_form" class="default_form">
+      <form id="record_entry_form" onsubmit="formClickHandler()">
+        <fieldset>
+          <legend><span class="number"></span> Log an entry </legend>
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date">
+          <label for="meal">Meal:</label>
+          <select id="meal" name="meal">
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+          </select>
+          <label for="food_name">Food:</label>
+          <input type="text" id="food_name" name="food_name">
+          <label for="qty_in_oz">Quantity (in oz):</label>
+          <input type="number" step="0.01" id="qty_in_oz" name="qty_in_oz">
+          <label for="leftover_reason">Leftover Reason:</label>
+          <select id="leftover_reason" name="leftover_reason">
+            <option value="Too much left overs">Too much left overs</option>
+            <option value="Tastes bad">Tastes bad</option>
+            <option value="Expired">Expired</option>
+            <option value="Other">Other</option>
+          </select>
+          <label for="disposal_mechanism">Disposal Mechanism:</label>
+          <select id="disposal_mechanism" name="disposal_mechanism">
+            <option value="Sink">Sink</option>
+            <option value="Trash">Trash</option>
+            <option value="Feed to pet">Feed to pet</option>
+            <option value="Compost">Compost</option>
+            <option value="Donation">Donation</option>
+            <option value="Other">Other</option>
+          </select>
+          <label for="cost">Estimated Cost (in $):</label>
+          <input type="number" step="0.01" id="cost" name="cost">
+          <input id="form_submit_button" type="submit" value="Submit">
+        </fieldset>
+      </form>
+      <script>
+        var form = document.querySelector("#record_entry_form");
+        function handleForm(event) { event.preventDefault(); }
+        form.addEventListener('submit', handleForm);
+      </script>
+
+      <div id="tracker_button_container">
+        <button class="default_button tracker_button" id="generate_report_btn"
+          onclick="window.location.href = 'report.html';">Generate Leftover Food
+          Report</button>
+
+        <button class="default_button tracker_button" id="backup_records_btn" onclick="backup_to_server()">Backup
+          Records to Server</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
