@@ -15,31 +15,14 @@
 // @Ivan-A0
 
 class LeftoverReport {
- public:
+public:
   LeftoverReport() {}
   LeftoverReport(const std::vector<LeftoverRecord> &leftover_records)
       : leftover_records_(leftover_records) {}
 
-  /*LeftoverReport(
-       const std::vector<LeftoverRecord> &leftover_records,
-       std::vector<std::string> &most_common_leftover,
-       std::vector<std::string> &most_costly_leftover_producing_meals,
-       double &total_cost_of_leftover,
-       std::vector<std::string> &most_common_leftover_reason,
-       std::vector<std::string> &most_common_disposal_mechanism,
-       std::vector<std::string> &suggested_strategies_to_reduce_leftover)
-       : leftover_records_(leftover_records),
-         most_common_leftover_(most_common_leftover),
-         most_costly_leftover_producing_meals_(
-             most_costly_leftover_producing_meals),
-         total_cost_of_leftover_(total_cost_of_leftover),
-         most_common_leftover_reason_(most_common_leftover_reason),
-         most_common_disposal_mechanism_(most_common_disposal_mechanism),
-         suggested_strategies_to_reduce_leftover_(
-             suggested_strategies_to_reduce_leftover) {}*/
   std::vector<std::string> MostCommonLeftover() const {
     std::map<std::string, int> leftovers;
-    std::vector<std::string> most_common_leftover;
+    std::vector<std::string> most_common_leftover_;
     int leftover_freq = 0;
     for (LeftoverRecord record : leftover_records_) {
       std::string food_name = record.GetFoodName();
@@ -54,10 +37,10 @@ class LeftoverReport {
     }
     for (std::pair<std::string, int> pair : leftovers) {
       if (pair.second == leftover_freq) {
-        most_common_leftover.push_back(pair.first);
+        most_common_leftover_.push_back(pair.first);
       }
     }
-    return most_common_leftover;
+    return most_common_leftover_;
   }
 
   std::vector<std::string> MostCostlyLeftoverProducingMeals() const {
@@ -95,7 +78,7 @@ class LeftoverReport {
 
   std::vector<std::string> MostCommonLeftoverReason() const {
     std::map<std::string, int> common_leftovers;
-    std::vector<std::string> most_common_leftover_reason;
+    std::vector<std::string> most_common_leftover_reason_;
     int most_common = 0;
 
     for (const LeftoverRecord &record : leftover_records_) {
@@ -107,35 +90,36 @@ class LeftoverReport {
     }
     for (const auto &pair : common_leftovers) {
       if (pair.second == most_common) {
-        most_common_leftover_reason.push_back(pair.first);
+        most_common_leftover_reason_.push_back(pair.first);
       }
     }
 
-    return most_common_leftover_reason;
+    return most_common_leftover_reason_;
   }
 
   std::vector<std::string> MostCommonDisposalMechanism() const {
-    std::map<std::string, int> most_common_disposal;
-    std::vector<std::string> most_common_disposal_mechanisms;
+    std::map<std::string, int> most_common_disposal_;
+    std::vector<std::string> most_common_disposal_mechanisms_;
     int common_disposal = 0;
 
     for (LeftoverRecord record : leftover_records_) {
       std::string mechanisms = record.GetDisposalMechanism();
-      if (most_common_disposal.find(mechanisms) == most_common_disposal.end()) {
-        most_common_disposal[mechanisms] = 1;
+      if (most_common_disposal_.find(mechanisms) ==
+          most_common_disposal_.end()) {
+        most_common_disposal_[mechanisms] = 1;
       } else {
-        most_common_disposal[mechanisms] += 1;
+        most_common_disposal_[mechanisms] += 1;
       }
-      if (most_common_disposal[mechanisms] > common_disposal) {
-        common_disposal = most_common_disposal[mechanisms];
+      if (most_common_disposal_[mechanisms] > common_disposal) {
+        common_disposal = most_common_disposal_[mechanisms];
       }
     }
-    for (std::pair<std::string, int> pair : most_common_disposal) {
+    for (std::pair<std::string, int> pair : most_common_disposal_) {
       if (pair.second == common_disposal) {
-        most_common_disposal_mechanisms.push_back(pair.first);
+        most_common_disposal_mechanisms_.push_back(pair.first);
       }
     }
-    return most_common_disposal_mechanisms;
+    return most_common_disposal_mechanisms_;
   }
   std::vector<std::string> SuggestedLeftoverReductionStrategies() const {
     std::vector<std::string> strategies;
@@ -152,8 +136,8 @@ class LeftoverReport {
         }
       }
       if (reason == "Tastes bad") {
-        if (std::find(strategies.begin(), strategies.end(),
-                      "Try buying less food") == strategies.end()) {
+        if (std::find(strategies.begin(), strategies.end(), "Buy less food") ==
+            strategies.end()) {
           strategies.push_back("Buy less food");
         }
       }
@@ -163,26 +147,26 @@ class LeftoverReport {
           strategies.push_back("Buy less food");
         }
         if (std::find(strategies.begin(), strategies.end(),
-                      "Cook smaller servings") == strategies.end()) {
-          strategies.push_back("Cook smaller servings");
+                      "Cook small servings") == strategies.end()) {
+          strategies.push_back("Cook small servings");
         }
       }
     }
     if (std::find(strategies.begin(), strategies.end(),
                   "Donate before expiration") == strategies.end()) {
-      strategies.push_back("Recylce leftovers");
+      strategies.push_back("Recycle left overs");
     }
     return strategies;
   }
 
- private:
+private:
   const std::vector<LeftoverRecord> leftover_records_;
   std::vector<std::string> most_common_leftover_;
   std::vector<std::string> most_costly_leftover_producing_meals_;
   double total_cost_of_leftover_;
   std::vector<std::string> most_common_leftover_reason_;
   std::vector<std::string> most_common_disposal_mechanism_;
-  std::vector<std::string> suggested_strategies_to_reduce_leftover_;
+  std::vector<std::string> strategies_;
 };
 
 #endif

@@ -9,7 +9,7 @@
 // @Ivan-A0
 
 class LeftoverRecord {
- public:
+public:
   /*LeftoverRecord(const std::string &date, const std::string &meal,
                  const std::string &food_name, double qty_in_oz,
                  const std::string &leftover_reason,
@@ -60,7 +60,7 @@ class LeftoverRecord {
     return false;
   }
 
- private:
+private:
   std::string date_;
   std::string meal_;
   std::string food_name_;

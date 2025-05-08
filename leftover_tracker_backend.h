@@ -14,7 +14,7 @@
 // objects. Some helper functions have been provided in
 // leftover_tracker_backend.cc to help you with that conversion.
 class LeftoverTrackerBackend {
- public:
+public:
   // yLeftoverTrackerBackend();
   //  Reads the leftover records from the file at
   //  kLeftoverRecordsFilepath, and loads those in memory. If the file is
@@ -25,7 +25,7 @@ class LeftoverTrackerBackend {
   //  Example:
   // LeftoverTrackerBackend backend{"path/to/some_file_name.JSON"};
   // backend.LoadRecordsFromJsonFile();
-  LeftoverTrackerBackend(const std::string& leftover_records_filepath)
+  LeftoverTrackerBackend(const std::string &leftover_records_filepath)
       : kLeftoverRecordsFilepath{leftover_records_filepath} {}
   bool LoadRecordsFromJSONFile();
 
@@ -35,10 +35,10 @@ class LeftoverTrackerBackend {
   bool WriteRecordsToJSONFile() const;
 
   // Add the given leftovere record (in the query_string) to the memory.
-  crow::json::wvalue AddRecord(const crow::query_string& query_string);
+  crow::json::wvalue AddRecord(const crow::query_string &query_string);
 
   // Delete the given leftover record (in the query_string) from the memory.
-  crow::json::wvalue DeleteRecord(const crow::query_string& query_string);
+  crow::json::wvalue DeleteRecord(const crow::query_string &query_string);
 
   // Returns all the leftover records that are stored in the memory.
   crow::json::wvalue GetRecords() const;
@@ -46,7 +46,7 @@ class LeftoverTrackerBackend {
   // Generate a report based on all the leftover records in the memory.
   crow::json::wvalue GetLeftoverReport() const;
 
- private:
+private:
   // A top level class object to leftovers.
   // TODO: Add a LeftoverTracker object as a member variable here. Make sure you
   // stick to Google's style guide when naming your variable.
@@ -56,35 +56,35 @@ class LeftoverTrackerBackend {
   const std::string kLeftoverRecordsFilepath;
   LeftoverTracker tracker_;
   // LeftoverTrackerBackend constants
-  const char* kStatusSuccess = "success";
-  const char* kNumRecords = "num_records";
-  const char* kRecordArray = "record_array";
+  const char *kStatusSuccess = "success";
+  const char *kNumRecords = "num_records";
+  const char *kRecordArray = "record_array";
 };
 
 // Constants used in File Reading/Writing
-extern const char* kFileDataDate;
-extern const char* kFileDataMeal;
-extern const char* kFileDataFoodName;
-extern const char* kFileDataQtyInOz;
-extern const char* kFileDataLeftoverReason;
-extern const char* kFileDataFoodDisposalMechanism;
-extern const char* kFileDataCost;
+extern const char *kFileDataDate;
+extern const char *kFileDataMeal;
+extern const char *kFileDataFoodName;
+extern const char *kFileDataQtyInOz;
+extern const char *kFileDataLeftoverReason;
+extern const char *kFileDataFoodDisposalMechanism;
+extern const char *kFileDataCost;
 
 // Constants used in sending/receiving data from the web
-extern const char* kWebDataDate;
-extern const char* kWebDataMeal;
-extern const char* kWebDataFoodName;
-extern const char* kWebDataQtyInOz;
-extern const char* kWebDataLeftoverReason;
-extern const char* kWebDataDisposalMechanism;
-extern const char* kWebDataCost;
+extern const char *kWebDataDate;
+extern const char *kWebDataMeal;
+extern const char *kWebDataFoodName;
+extern const char *kWebDataQtyInOz;
+extern const char *kWebDataLeftoverReason;
+extern const char *kWebDataDisposalMechanism;
+extern const char *kWebDataCost;
 
 // Constants used in sending/receiving report data from the web.
-extern const char* kWebReportDataCommonDisposalMechanism;
-extern const char* kWebReportDataCommonLeftOver;
-extern const char* kWebReportDataCommonLeftOverReason;
-extern const char* kWebReportDataMostLeftOverProducingMeal;
-extern const char* kWebReportDataSuggestedReductLeftover;
-extern const char* kWebReportDataLeftOverCost;
+extern const char *kWebReportDataCommonDisposalMechanism;
+extern const char *kWebReportDataCommonLeftOver;
+extern const char *kWebReportDataCommonLeftOverReason;
+extern const char *kWebReportDataMostLeftOverProducingMeal;
+extern const char *kWebReportDataSuggestedReductLeftover;
+extern const char *kWebReportDataLeftOverCost;
 
 #endif

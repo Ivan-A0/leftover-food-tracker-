@@ -12,7 +12,7 @@
 // @Ivan-A0
 
 class LeftoverTracker {
- public:
+public:
   /*LeftoverTracker(const std::vector<LeftoverRecord> &leftover_records)
       : leftover_records_(leftover_records) {} */
   LeftoverTracker();
@@ -48,7 +48,7 @@ class LeftoverTracker {
     return LeftoverReport(leftover_records_);
   }
 
- private:
+private:
   std::vector<LeftoverRecord> leftover_records_;
 };
 
