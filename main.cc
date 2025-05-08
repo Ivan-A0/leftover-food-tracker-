@@ -18,7 +18,7 @@ int main() {
   // access the server.
   auto &cors_middleware = app.get_middleware<crow::CORSHandler>();
   cors_middleware.global().origin("*");
-  cors_middleware.global().max_age(7200); // Chrome's maximum
+  cors_middleware.global().max_age(7200);  // Chrome's maximum
 
   // Web server routes
   CROW_ROUTE(app, "/get_records")
